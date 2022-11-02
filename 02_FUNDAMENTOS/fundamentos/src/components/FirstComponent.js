@@ -1,5 +1,7 @@
 //  arquivo de estilo
 
+import MyComponent from "./MyComponent";
+
 const FirstComponent = () => {
     // essa função faz isso
 
@@ -13,6 +15,7 @@ const FirstComponent = () => {
             <p className="teste">
                 Teste de atributo class(className), pois class é classe de JS.
             </p>
+            <MyComponent />
         </div>
     );
 };

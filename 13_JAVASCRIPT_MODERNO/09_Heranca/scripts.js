@@ -27,8 +27,19 @@ class ProductWithAttributes extends Product {
 
 const hat = new ProductWithAttributes("Boné", 55, ["P", "M", "G"]);
 
-// Descobrir o pq não funciona.
-// hat.map(hat.nome = "Chapéu");
+const pants = new ProductWithAttributes("Calça", 90, ["M", "G"]);
+
+const produtos = [hat, pants];
+
+console.log(produtos);
+
+produtos.map((x) => {
+    x.descricaoProduto = x.nome;
+    delete x.nome ;
+    return x;
+})
+
+console.log("depois", produtos);
 
 console.log(hat);
 

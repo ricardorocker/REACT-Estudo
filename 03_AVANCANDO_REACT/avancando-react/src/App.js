@@ -1,6 +1,7 @@
 import './App.css';
 
 import Vancouver from './assets/vancouver.jpg';
+import ManageData from './components/ManageData';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <div>
         <img src={Vancouver} alt="Canada Vancouver" />
       </div>
+      <ManageData/>
     </div>
   );
 }

@@ -5,12 +5,25 @@ const ListRender = () => {
     const [list] = useState(["Snow", "Lannister", "Stark"]);
 
     // Com chave unica
-    const [family] = useState([
+    const [familys, setFamily] = useState([
         { id: 1, name: "Snow", qtde: 2 },
-        { id: 32, name: "Lannister", qtde: 8 },
-        { id: 54631, name: "Stark", qtde: 5 },
+        { id: 2, name: "Lannister", qtde: 8 },
+        { id: 3, name: "Stark", qtde: 5 },
     ])
 
+    const deleteRandomFamily = () => {
+        const randomNumber = Math.floor(Math.random() * 4);
+
+        // setFamily(familys.filter((family) => family.id !== randomNumber));
+
+        // PREVIOUS STATE
+        setFamily((prevFamily) => {
+            return prevFamily.filter((family) => {
+                return family.id !== randomNumber;
+            });
+        });
+    }
+    
     return (
         <div>
             <h1>ListRender</h1>
@@ -25,12 +38,17 @@ const ListRender = () => {
                     <li key={i}>{sobrenome}</li>
                 ))}
                 {/* Usando chave unica */}
-                {family.map((family) => (
-                    <li key={family.id}>
-                        {family.name} - {family.qtde}
+                {familys.map((familys) => (
+                    <li key={familys.id}>
+                        {familys.name} - {familys.qtde}
                     </li>
                 ))}
             </ul>
+
+            {/* Previous State */}
+            <button onClick={deleteRandomFamily}>
+                Deletar familia aleatória
+            </button>
 
         </div>
     )

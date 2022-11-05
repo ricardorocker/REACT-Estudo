@@ -1,6 +1,7 @@
 import './App.css';
 
 import Vancouver from './assets/vancouver.jpg';
+import ListRender from './components/ListRender';
 import ManageData from './components/ManageData';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <img src={Vancouver} alt="Canada Vancouver" />
       </div>
       <ManageData/>
+      <ListRender/>
     </div>
   );
 }

@@ -11,6 +11,7 @@ const ManageData = () => {
 
     return (
         <div>
+            <h1>HOOKS: useState</h1>
             {/* sem useState */}
             <p>valor sem useState: {someData}</p>
             <button onClick={() => (someData = 15)}>

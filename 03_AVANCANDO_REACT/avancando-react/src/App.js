@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import './App.css';
 
 import Vancouver from './assets/vancouver.jpg';
@@ -7,6 +7,7 @@ import ConditionalRender from './components/ConditionalRender';
 import ListRender from './components/ListRender';
 import ManageData from './components/ManageData';
 import ShowUserName from './components/ShowUserName';
+import FragmentComponent from './components/Fragment';
 
 function App() {
   const name = "Ricardo Santos Rocker";
@@ -49,6 +50,8 @@ function App() {
         color={car.color} 
         newCar={car.newCar} />
       ))}
+      {/* Fragment */}
+      <FragmentComponent propFragment="teste"/>
     </div>
   );
 }

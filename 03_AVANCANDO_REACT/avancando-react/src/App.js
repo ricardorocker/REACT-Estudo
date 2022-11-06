@@ -9,15 +9,21 @@ import ManageData from './components/ManageData';
 import ShowUserName from './components/ShowUserName';
 import FragmentComponent from './components/Fragment';
 import Container from './components/Container';
+import ExecuteFunction from './components/ExecuteFunction';
 
 function App() {
   const name = "Ricardo Santos Rocker";
   const [userName] = useState("ricardo.rocker")
   const cars = [
-    { brand: "Jeep", year: 2018, color: "Azul", newCar: false },
-    { brand: "Ferrari", year: 2022, color: "Vermelho", newCar: true },
-    { brand: "VolksWagen", year: 2020, color: "Marrom", newCar: false },
+    { id: 1, brand: "Jeep", year: 2018, color: "Azul", newCar: false },
+    { id: 2, brand: "Ferrari", year: 2022, color: "Vermelho", newCar: true },
+    { id: 3, brand: "VolksWagen", year: 2020, color: "Marrom", newCar: false },
   ]
+  const showMessage = () => {
+    const newContent = document.createTextNode("Função do componente pai executada!");
+    const currentDiv = document.getElementById("textInserido");
+    currentDiv.appendChild(newContent);
+  }
 
   return (
     <div className="App">
@@ -46,6 +52,7 @@ function App() {
       {/* Loop em array de objetos */}
       {cars.map((car) => (
         <CarDetails
+          key={car.id}
           brand={car.brand}
           year={car.year}
           color={car.color}
@@ -54,12 +61,15 @@ function App() {
       {/* Fragment */}
       <FragmentComponent propFragment="teste" />
       {/* Children */}
+      <h1>Children</h1>
       <Container text="Texto vindo pela prop">
         <p>E este é o conteúdo fora do componente</p>
       </Container>
       <Container text="Texto 2">
         <h5>Testando container</h5>
       </Container>
+      {/* Executar função */}
+      <ExecuteFunction functionFather={showMessage} />
     </div>
   );
 }

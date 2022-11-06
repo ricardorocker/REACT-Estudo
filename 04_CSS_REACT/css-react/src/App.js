@@ -5,6 +5,7 @@ import { useState } from "react";
 function App() {
   const n = 15;
   const [name] = useState("Ricardo");
+  const redTitle = true;
 
   return (
     <div className="App">
@@ -31,6 +32,13 @@ function App() {
           null
         )}>
         CSS inline dinâmico
+      </h3>
+      {/* Classes dinâmicas */}
+      <h3 className={redTitle ? ("red-title") : ("title")}>
+        Este titulo tem classe dinâmica
+      </h3>
+      <h3 className={!redTitle ? ("red-title") : ("title")}>
+        Este titulo tem classe dinâmica
       </h3>
     </div>
   );

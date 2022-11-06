@@ -10,6 +10,8 @@ import ShowUserName from './components/ShowUserName';
 import FragmentComponent from './components/Fragment';
 import Container from './components/Container';
 import ExecuteFunction from './components/ExecuteFunction';
+import Message from './components/Message';
+import ChangeMessageState from './components/ChangeMessageState';
 
 function App() {
   const name = "Ricardo Santos Rocker";
@@ -24,6 +26,11 @@ function App() {
     const currentDiv = document.getElementById("textInserido");
     currentDiv.appendChild(newContent);
   }
+
+  const [message, setMessage] = useState("");
+  const handleMessage = (msg) => {
+    setMessage(msg)
+  };
 
   return (
     <div className="App">
@@ -70,6 +77,9 @@ function App() {
       </Container>
       {/* Executar função */}
       <ExecuteFunction functionFather={showMessage} />
+      {/* State lift */}
+      <Message message={message} />
+      <ChangeMessageState handleMessage={handleMessage} />
     </div>
   );
 }

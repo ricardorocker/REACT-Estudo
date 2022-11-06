@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 
 import Vancouver from './assets/vancouver.jpg';
@@ -8,6 +8,7 @@ import ListRender from './components/ListRender';
 import ManageData from './components/ManageData';
 import ShowUserName from './components/ShowUserName';
 import FragmentComponent from './components/Fragment';
+import Container from './components/Container';
 
 function App() {
   const name = "Ricardo Santos Rocker";
@@ -44,14 +45,21 @@ function App() {
       <CarDetails brand="Ford" year={2019} color="Branco" newCar={false} />
       {/* Loop em array de objetos */}
       {cars.map((car) => (
-        <CarDetails 
-        brand={car.brand} 
-        year={car.year} 
-        color={car.color} 
-        newCar={car.newCar} />
+        <CarDetails
+          brand={car.brand}
+          year={car.year}
+          color={car.color}
+          newCar={car.newCar} />
       ))}
       {/* Fragment */}
-      <FragmentComponent propFragment="teste"/>
+      <FragmentComponent propFragment="teste" />
+      {/* Children */}
+      <Container text="Texto vindo pela prop">
+        <p>E este é o conteúdo fora do componente</p>
+      </Container>
+      <Container text="Texto 2">
+        <h5>Testando container</h5>
+      </Container>
     </div>
   );
 }

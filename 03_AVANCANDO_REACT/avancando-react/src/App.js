@@ -11,6 +11,11 @@ import ShowUserName from './components/ShowUserName';
 function App() {
   const name = "Ricardo Santos Rocker";
   const [userName] = useState("ricardo.rocker")
+  const cars = [
+    { brand: "Jeep", year: 2018, color: "Azul", newCar: false },
+    { brand: "Ferrari", year: 2022, color: "Vermelho", newCar: true },
+    { brand: "VolksWagen", year: 2020, color: "Marrom", newCar: false },
+  ]
 
   return (
     <div className="App">
@@ -31,10 +36,19 @@ function App() {
       {/* Props */}
       <ShowUserName name={name} login={userName} />
       {/* Destructuring */}
-      <h4>DESTRUCTURING</h4>
+      <h1>Destructuring</h1>
       <CarDetails brand="Chevrolet" year={2022} color="Prata" newCar={false} />
+      {/* Reaproveitando */}
       <CarDetails brand="Fiat" year={2021} color="Preto" newCar={true} />
       <CarDetails brand="Ford" year={2019} color="Branco" newCar={false} />
+      {/* Loop em array de objetos */}
+      {cars.map((car) => (
+        <CarDetails 
+        brand={car.brand} 
+        year={car.year} 
+        color={car.color} 
+        newCar={car.newCar} />
+      ))}
     </div>
   );
 }

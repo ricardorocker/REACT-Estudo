@@ -23,13 +23,18 @@ function App() {
       <div>
         <img src={Vancouver} alt="Canada Vancouver" />
       </div>
-      <ManageData/>
-      <ListRender/>
-      <ConditionalRender/>
+      {/* Hooks: useState */}
+      <ManageData />
+      {/* Previous State */}
+      <ListRender />
+      <ConditionalRender />
       {/* Props */}
-      <ShowUserName name={name} login={userName}/>
+      <ShowUserName name={name} login={userName} />
       {/* Destructuring */}
-      <CarDetails brand="Chevrolet" year={2022} color="Prata"/>
+      <h4>DESTRUCTURING</h4>
+      <CarDetails brand="Chevrolet" year={2022} color="Prata" newCar={false} />
+      <CarDetails brand="Fiat" year={2021} color="Preto" newCar={true} />
+      <CarDetails brand="Ford" year={2019} color="Branco" newCar={false} />
     </div>
   );
 }

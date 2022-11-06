@@ -12,15 +12,18 @@ import Container from './components/Container';
 import ExecuteFunction from './components/ExecuteFunction';
 import Message from './components/Message';
 import ChangeMessageState from './components/ChangeMessageState';
+import UserDetails from './components/UserDetails';
 
 function App() {
   const name = "Ricardo Santos Rocker";
   const [userName] = useState("ricardo.rocker")
+
   const cars = [
     { id: 1, brand: "Jeep", year: 2018, color: "Azul", newCar: false },
     { id: 2, brand: "Ferrari", year: 2022, color: "Vermelho", newCar: true },
     { id: 3, brand: "VolksWagen", year: 2020, color: "Marrom", newCar: false },
   ]
+
   const showMessage = () => {
     const newContent = document.createTextNode("Função do componente pai executada!");
     const currentDiv = document.getElementById("textInserido");
@@ -31,6 +34,13 @@ function App() {
   const handleMessage = (msg) => {
     setMessage(msg)
   };
+
+  const users = [
+    { id: 1, name: "Ricardo Rocker", age: 27, job: "Angular Dev" },
+    { id: 2, name: "Petrucia Lira", age: 24, job: "Bióloga" },
+    { id: 3, name: "Amanda Santos", age: 22, job: "Enfermeira" },
+    { id: 4, name: "Tiago Soares", age: 10, job: "Estudante" },
+  ];
 
   return (
     <div className="App">
@@ -80,6 +90,17 @@ function App() {
       {/* State lift */}
       <Message message={message} />
       <ChangeMessageState handleMessage={handleMessage} />
+      {/* Desafio Módulo 3 */}
+      <h1>Desafio Módulo 3</h1>
+      {/* <UserDetails id={users[0].id} name={users[0].name} age={users[0].age} occupation={users[0].occupation} /> */}
+      {users.map((user) => {
+        return <UserDetails
+          id={user.id}
+          name={user.name}
+          age={user.age}
+          job={user.job}
+        />
+      })}
     </div>
   );
 }

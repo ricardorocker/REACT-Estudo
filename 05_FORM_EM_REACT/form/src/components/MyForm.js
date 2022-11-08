@@ -12,6 +12,7 @@ const MyForm = () => {
     }
 
     console.log("Name (e.target.value)", name);
+    console.log("Email", email);
 
     return (
         <div>
@@ -19,13 +20,15 @@ const MyForm = () => {
             <form>
                 <div>
                     <label htmlFor="name">Nome: </label>
-                    <input type="text" name="name" placeholder="Digite o seu nome" 
-                    onChange={handleName} />
+                    <input type="text" name="name" placeholder="Digite o seu nome"
+                        onChange={handleName} />
                 </div>
                 {/* 2 - Label envolvendo Input */}
                 <label>
                     <span>Email:</span>
-                    <input type="text" name="email" placeholder="Digite o seu email" />
+                    <input type="text" name="email" placeholder="Digite o seu email" 
+                    // 4 - Alteração de State Inline
+                    onChange={(e) => setEmail(e.target.value)} />
                 </label>
                 <input type="submit" value="Enviar" />
             </form>

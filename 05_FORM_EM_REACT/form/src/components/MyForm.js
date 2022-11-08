@@ -9,13 +9,17 @@ const MyForm = ({ user }) => {
     const [email, setEmail] = useState(user ? user.email : "");
 
     const handleName = (e) => {
-        setName(e.target.value)
+        setName(e.target.value);
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log("Enviando o formulário!");
         console.log(name, email);
+
+        // 7 - Limpar Formulários
+        setName("");
+        setEmail("");
     }
 
     console.log("Name", name);
@@ -34,7 +38,7 @@ const MyForm = ({ user }) => {
                         name="name"
                         placeholder="Digite o seu nome"
                         onChange={handleName}
-                        value={user.name}
+                        value={name}
                     />
                 </div>
                 {/* 2 - Label envolvendo Input */}
@@ -46,7 +50,7 @@ const MyForm = ({ user }) => {
                         placeholder="Digite o seu email"
                         // 4 - Alteração de State Inline (Simplificação manipulação de state)
                         onChange={(e) => setEmail(e.target.value)}
-                        value={user.email}
+                        value={email}
                     />
                 </label>
                 <input type="submit" value="Enviar" />

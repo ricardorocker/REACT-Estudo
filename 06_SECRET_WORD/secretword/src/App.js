@@ -25,7 +25,12 @@ function App() {
 
   const [pickedWord, setPickedWord] = useState();
   const [pickedCategory, setPickedCategory] = useState();
-  const [letters, setLetters] = useState();
+  const [letters, setLetters] = useState([]);
+  const [guessedLetters, setGuessedLetters] = useState([]);
+  const [score, setScore] = useState(0);
+  const [guesses, setGuesses] = useState(3);
+  const [wrongLetters, setWrongLetters] = useState([]);
+
 
   console.log("Categoria é: ", pickedCategory);
   console.log("Palavra é: ", pickedWord);
@@ -83,7 +88,12 @@ function App() {
       {gameStage === 'game' &&
         <Game verifyLetter={verifyLetter}
           pickedWord={pickedWord}
-          pickedCategory={pickedCategory} />}
+          pickedCategory={pickedCategory} 
+          letters={letters}
+          guessedLetters={guessedLetters}
+          score={score}
+          guesses={guesses}
+          wrongLetters={wrongLetters}/>}
       {gameStage === 'end' && <GameOver retry={retry} />}
     </div>
   );

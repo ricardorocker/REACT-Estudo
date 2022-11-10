@@ -21,9 +21,56 @@ const stages = [
 function App() {
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words] = useState(wordsList);
-  console.log(words);
+  // console.log(words);
+
+  const [pickedWord, setPickedWord] = useState();
+  const [pickedCategory, setPickedCategory] = useState();
+  const [letters, setLetters] = useState([]);
+  const [guessedLetters, setGuessedLetters] = useState([]);
+  const [score, setScore] = useState(0);
+  const [guesses, setGuesses] = useState(3);
+  const [wrongLetters, setWrongLetters] = useState([]);
+
+
+  console.log("Categoria é: ", pickedCategory);
+  console.log("Palavra é: ", pickedWord);
+  console.log("Letras são: ", letters);
+
+  const pickWordAndCategory = () => {
+    // Pick a random category
+    const categories = Object.keys(words);
+    const category = categories[Math.floor(Math.random() * categories.length)];
+
+    // Pick a random word
+    /* Jeito que tentei antes
+    const categoryLength = Math.floor(Math.random() * words[category].length);
+    words[category].filter((palavra, index) => {
+      if (index === categoryLength) {
+        return setPickedWord(palavra);
+      }});
+    Jeito do professor */
+    const word = words[category][Math.floor(Math.random() * words[category].length)];
+
+    return { category, word };
+  }
 
   const startGame = () => {
+    //  Pick word and pick a category
+    const { word, category } = pickWordAndCategory();
+
+    // Create an array of letters
+    let wordLetters = word.split("");
+
+    wordLetters = wordLetters.map((letter) => letter.toLowerCase());
+
+    console.log(word, category);
+    console.log(wordLetters);
+
+    // Fill states
+    setPickedCategory(category);
+    setPickedWord(word);
+    setLetters(wordLetters);
+
     setGameStage(stages[1].name);
   };
 
@@ -37,9 +84,17 @@ function App() {
 
   return (
     <div className="App">
-      {gameStage === 'start' && <StartScreen startGame={startGame}/>}
-      {gameStage === 'game' && <Game verifyLetter={verifyLetter}/>}
-      {gameStage === 'end' && <GameOver retry={retry}/>}
+      {gameStage === 'start' && <StartScreen startGame={startGame} />}
+      {gameStage === 'game' &&
+        <Game verifyLetter={verifyLetter}
+          pickedWord={pickedWord}
+          pickedCategory={pickedCategory} 
+          letters={letters}
+          guessedLetters={guessedLetters}
+          score={score}
+          guesses={guesses}
+          wrongLetters={wrongLetters}/>}
+      {gameStage === 'end' && <GameOver retry={retry} />}
     </div>
   );
 }

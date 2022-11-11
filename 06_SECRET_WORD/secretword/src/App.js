@@ -31,7 +31,7 @@ function App() {
   const [guesses, setGuesses] = useState(guessesQuantity);
   const [wrongLetters, setWrongLetters] = useState([]);
 
-  const pickWordAndCategory = () => {
+  const pickWordAndCategory = useCallback(() => {
     // Pick a random category
     const categories = Object.keys(words);
     const category = categories[Math.floor(Math.random() * categories.length)];
@@ -47,9 +47,13 @@ function App() {
     const word = words[category][Math.floor(Math.random() * words[category].length)];
 
     return { category, word };
-  }
+  }, [words]);
 
-  const startGame = () => {
+  // Necessário usar useCallback pois essa função é uma dependencia do useEffect
+  const startGame = useCallback(() => {
+    // Clear all letters
+    clearLetterState();
+
     //  Pick word and pick a category
     const { word, category } = pickWordAndCategory();
 
@@ -64,7 +68,7 @@ function App() {
     setLetters(wordLetters);
 
     setGameStage(stages[1].name);
-  };
+  }, [pickWordAndCategory]);
 
   const verifyLetter = (letter) => {
     const normalizedLetter = letter.toLowerCase();
@@ -97,6 +101,7 @@ function App() {
     setWrongLetters([]);
   }
 
+  // Check if guesses ended
   useEffect(() => {
     if (guesses <= 0) {
       // Reset all stages
@@ -111,6 +116,21 @@ function App() {
 
     setGameStage(stages[0].name);
   };
+
+  // Check win conditions
+  useEffect(() => {
+    const uniqueLetters = [...new Set(letters)];
+
+    // win condition
+    if (guessedLetters.length === uniqueLetters.length) {
+      // add score
+      setScore((actualScore) => (actualScore += 100));
+
+      // restart game with new word
+      startGame();
+    }
+
+  }, [guessedLetters, letters, startGame]);
 
   return (
     <div className="App">

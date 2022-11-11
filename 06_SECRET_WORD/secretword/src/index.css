@@ -8,8 +8,8 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(180deg,
-            gray 0%,
-            white 100%);
+            rgb(2, 36, 17) 0%,
+            rgb(12, 150, 74) 100%);
     color: white;
 }
 

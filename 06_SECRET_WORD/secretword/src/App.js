@@ -122,7 +122,7 @@ function App() {
     const uniqueLetters = [...new Set(letters)];
 
     // win condition
-    if (guessedLetters.length === uniqueLetters.length) {
+    if (guessedLetters.length === uniqueLetters.length && uniqueLetters.length) {
       // add score
       setScore((actualScore) => (actualScore += 100));
 

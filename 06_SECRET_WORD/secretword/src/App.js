@@ -31,11 +31,6 @@ function App() {
   const [guesses, setGuesses] = useState(3);
   const [wrongLetters, setWrongLetters] = useState([]);
 
-
-  console.log("Categoria é: ", pickedCategory);
-  console.log("Palavra é: ", pickedWord);
-  console.log("Letras são: ", letters);
-
   const pickWordAndCategory = () => {
     // Pick a random category
     const categories = Object.keys(words);
@@ -63,9 +58,6 @@ function App() {
 
     wordLetters = wordLetters.map((letter) => letter.toLowerCase());
 
-    console.log(word, category);
-    console.log(wordLetters);
-
     // Fill states
     setPickedCategory(category);
     setPickedWord(word);
@@ -74,8 +66,8 @@ function App() {
     setGameStage(stages[1].name);
   };
 
-  const verifyLetter = () => {
-    setGameStage(stages[2].name);
+  const verifyLetter = (letter) => {
+    console.log("verifyLetter: ", letter);
   };
 
   const retry = () => {

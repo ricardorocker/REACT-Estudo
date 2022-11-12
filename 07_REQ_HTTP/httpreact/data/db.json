@@ -24,6 +24,21 @@
       "name": "Camisa Social",
       "price": "89",
       "id": 5
+    },
+    {
+      "name": "Calça Social",
+      "price": "99",
+      "id": 6
+    },
+    {
+      "name": "Tenis",
+      "price": "109",
+      "id": 7
+    },
+    {
+      "name": "Sapato",
+      "price": "140",
+      "id": 8
     }
   ]
 }

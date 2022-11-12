@@ -30,7 +30,7 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newProduct = {
+    const product = {
       name,
       price
     }
@@ -40,12 +40,16 @@ function App() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newProduct)
-    })
+      body: JSON.stringify(product)
+    });
+    
+    // 3 -CARREGAMENTO DINÂMICO
+    const addedProduct = await res.json();
+    
+    setProducts((prevProducts) => [...prevProducts, addedProduct]);
 
-    console.log("res", res);
-    console.log("newProduct", newProduct);
-    console.log("JSON.stringify(newProduct)", JSON.stringify(newProduct));
+    setName("");
+    setPrice("");
   };
 
   return (

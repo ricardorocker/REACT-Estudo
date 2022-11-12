@@ -39,6 +39,21 @@
       "name": "Sapato",
       "price": "140",
       "id": 8
+    },
+    {
+      "name": "Blusa",
+      "price": "133",
+      "id": 9
+    },
+    {
+      "name": "Casaco",
+      "price": "250",
+      "id": 10
+    },
+    {
+      "name": "Meias",
+      "price": "25",
+      "id": 11
     }
   ]
 }

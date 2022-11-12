@@ -1,3 +1,9 @@
+.start {
+    position: relative;
+    top: 50%;
+    transform: translateY(70%);
+}
+
 .start h1 {
     font-size: 3.5em;
 }
@@ -5,4 +11,8 @@
 .start p {
     margin-bottom: 2em;
     color: rgb(255, 255, 255);
+}
+
+.start span {
+    font-weight: bold;
 }

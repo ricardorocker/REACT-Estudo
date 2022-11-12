@@ -1,4 +1,14 @@
+.gameOver {
+    position: relative;
+    top: 50%;
+    transform: translateY(70%);
+}
+
 h2 span {
     color: rgb(0, 255, 0);
     font-size: 1.5em;
+}
+
+p {
+    margin-top: 50px;
 }

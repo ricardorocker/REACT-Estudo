@@ -1,24 +1,29 @@
 {
-    "products": [
-        {
-            "id": 1,
-            "name": "Camisa",
-            "price": 59.9
-        },
-        {
-            "id": 2,
-            "name": "Calça vermelha",
-            "price": 90
-        },
-        {
-            "id": 3,
-            "name": "Boné aba reta",
-            "price": 29.9
-        },
-        {
-            "id": 4,
-            "name": "Bermuda de praia",
-            "price": 34.9
-        }
-    ]
+  "products": [
+    {
+      "id": 1,
+      "name": "Camisa",
+      "price": 59.9
+    },
+    {
+      "id": 2,
+      "name": "Calça vermelha",
+      "price": 90
+    },
+    {
+      "id": 3,
+      "name": "Boné aba reta",
+      "price": 29.9
+    },
+    {
+      "id": 4,
+      "name": "Bermuda de praia",
+      "price": 34.9
+    },
+    {
+      "name": "Camisa Social",
+      "price": "89",
+      "id": 5
+    }
+  ]
 }

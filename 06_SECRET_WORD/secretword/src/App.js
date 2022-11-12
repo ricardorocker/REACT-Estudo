@@ -19,24 +19,19 @@ const stages = [
 ]
 
 function App() {
+  const guessesQuantity = 3;
   const [gameStage, setGameStage] = useState(stages[0].name);
   const [words] = useState(wordsList);
-  // console.log(words);
 
   const [pickedWord, setPickedWord] = useState();
   const [pickedCategory, setPickedCategory] = useState();
   const [letters, setLetters] = useState([]);
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [score, setScore] = useState(0);
-  const [guesses, setGuesses] = useState(3);
+  const [guesses, setGuesses] = useState(guessesQuantity);
   const [wrongLetters, setWrongLetters] = useState([]);
 
-
-  console.log("Categoria é: ", pickedCategory);
-  console.log("Palavra é: ", pickedWord);
-  console.log("Letras são: ", letters);
-
-  const pickWordAndCategory = () => {
+  const pickWordAndCategory = useCallback(() => {
     // Pick a random category
     const categories = Object.keys(words);
     const category = categories[Math.floor(Math.random() * categories.length)];
@@ -52,9 +47,13 @@ function App() {
     const word = words[category][Math.floor(Math.random() * words[category].length)];
 
     return { category, word };
-  }
+  }, [words]);
 
-  const startGame = () => {
+  // Necessário usar useCallback pois essa função é uma dependencia do useEffect
+  const startGame = useCallback(() => {
+    // Clear all letters
+    clearLetterState();
+
     //  Pick word and pick a category
     const { word, category } = pickWordAndCategory();
 
@@ -63,24 +62,77 @@ function App() {
 
     wordLetters = wordLetters.map((letter) => letter.toLowerCase());
 
-    console.log(word, category);
-    console.log(wordLetters);
-
     // Fill states
     setPickedCategory(category);
     setPickedWord(word);
     setLetters(wordLetters);
 
     setGameStage(stages[1].name);
+  }, [pickWordAndCategory]);
+
+  const verifyLetter = (letter) => {
+    const normalizedLetter = letter.toLowerCase();
+
+    // Check if letter has already been utilized
+    if (
+      guessedLetters.includes(normalizedLetter) ||
+      wrongLetters.includes(normalizedLetter)
+    ) {
+      return;
+    }
+
+    // Push guessed letter or remove a guess
+    if (letters.includes(normalizedLetter)) {
+      setGuessedLetters((actualGuessedLetters) => [
+        ...actualGuessedLetters,
+        normalizedLetter
+      ])
+    } else {
+      setWrongLetters((actualWrongLetters) => [
+        ...actualWrongLetters,
+        normalizedLetter
+      ])
+      setGuesses((guesses) => (guesses - 1));
+    }
   };
 
-  const verifyLetter = () => {
-    setGameStage(stages[2].name);
-  };
+  const clearLetterState = () => {
+    setGuessedLetters([]);
+    setWrongLetters([]);
+  }
+
+  // Check if guesses ended
+  useEffect(() => {
+    if (guesses <= 0) {
+      // Reset all stages
+      clearLetterState();
+
+      setGameStage(stages[2].name)
+    }
+  }, [guesses]);
 
   const retry = () => {
+    setGuesses(guessesQuantity);
+    
+    setScore(0);
+
     setGameStage(stages[0].name);
   };
+
+  // Check win conditions
+  useEffect(() => {
+    const uniqueLetters = [...new Set(letters)];
+
+    // win condition
+    if (guessedLetters.length === uniqueLetters.length && uniqueLetters.length && stages[1].name) {
+      // add score
+      setScore((actualScore) => (actualScore += 100));
+
+      // restart game with new word
+      startGame();
+    }
+
+  }, [guessedLetters, letters, startGame]);
 
   return (
     <div className="App">
@@ -88,13 +140,13 @@ function App() {
       {gameStage === 'game' &&
         <Game verifyLetter={verifyLetter}
           pickedWord={pickedWord}
-          pickedCategory={pickedCategory} 
+          pickedCategory={pickedCategory}
           letters={letters}
           guessedLetters={guessedLetters}
           score={score}
           guesses={guesses}
-          wrongLetters={wrongLetters}/>}
-      {gameStage === 'end' && <GameOver retry={retry} />}
+          wrongLetters={wrongLetters} />}
+      {gameStage === 'end' && <GameOver retry={retry} score={score} />}
     </div>
   );
 }

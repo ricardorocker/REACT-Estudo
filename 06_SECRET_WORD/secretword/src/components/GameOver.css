@@ -1,0 +1,28 @@
+.gameOver {
+    position: relative;
+    top: 50%;
+    transform: translateY(60%);
+}
+
+h1 {
+    margin-bottom: 1em;
+}
+
+h2 {
+    margin-bottom: 2em;
+}
+
+h2 span {
+    color: rgb(0, 255, 0);
+    font-size: 1.5em;
+}
+
+p {
+    margin-top: 50px;
+}
+
+.guesses {
+    color: red;
+    font-weight: bold;
+    font-size: 1.5em;
+}

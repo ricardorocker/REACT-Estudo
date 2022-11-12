@@ -1,8 +1,18 @@
+.start {
+    position: relative;
+    top: 50%;
+    transform: translateY(60%);
+}
+
 .start h1 {
     font-size: 3.5em;
 }
 
 .start p {
-    margin-bottom: 2em;
-    color: rgb(56, 56, 56);
+    margin-bottom: 4em;
+    color: rgb(255, 255, 255);
+}
+
+.start span {
+    font-weight: bold;
 }

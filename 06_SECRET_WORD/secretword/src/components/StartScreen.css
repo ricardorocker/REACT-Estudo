@@ -1,7 +1,7 @@
 .start {
     position: relative;
     top: 50%;
-    transform: translateY(70%);
+    transform: translateY(60%);
 }
 
 .start h1 {
@@ -9,7 +9,7 @@
 }
 
 .start p {
-    margin-bottom: 2em;
+    margin-bottom: 4em;
     color: rgb(255, 255, 255);
 }
 

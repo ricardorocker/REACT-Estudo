@@ -30,7 +30,7 @@ const Game = ({
             <h3 className='tip'>
                 Dica sobre a palavra: <span>{pickedCategory}</span>
             </h3>
-            <p>Você ainda tem {guesses} tentativa(s)</p>
+            <p>Você ainda tem <span className="guesses">{guesses}</span> tentativa(s)</p>
             <div className="wordContainer">
                 {letters.map((letter, i) => (
                     guessedLetters.includes(letter) ?

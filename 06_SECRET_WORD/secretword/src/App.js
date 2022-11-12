@@ -113,6 +113,8 @@ function App() {
 
   const retry = () => {
     setGuesses(guessesQuantity);
+    
+    setScore(0);
 
     setGameStage(stages[0].name);
   };
@@ -122,7 +124,7 @@ function App() {
     const uniqueLetters = [...new Set(letters)];
 
     // win condition
-    if (guessedLetters.length === uniqueLetters.length && uniqueLetters.length) {
+    if (guessedLetters.length === uniqueLetters.length && uniqueLetters.length && stages[1].name) {
       // add score
       setScore((actualScore) => (actualScore += 100));
 

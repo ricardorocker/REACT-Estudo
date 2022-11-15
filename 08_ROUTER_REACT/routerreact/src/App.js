@@ -15,6 +15,7 @@ function App() {
     <div className="App">
       <h1>React Router</h1>
       <BrowserRouter>
+      {/* 2 - LINKS COM REACT ROUTER */}
       <Navbar/>
         <Routes>
           <Route path='/' element={<Home />} />

@@ -71,29 +71,34 @@
       "id": 14
     },
     {
-      "name": "Notebook",
-      "price": "3500",
+      "name": "Mouse",
+      "price": "59",
       "id": 15
     },
     {
-      "name": "mouse",
-      "price": "90",
+      "name": "suporte teclado",
+      "price": "49",
       "id": 16
     },
     {
-      "name": "celular",
-      "price": "1500",
+      "name": "suporte teclado",
+      "price": "49",
       "id": 17
     },
     {
-      "name": "fone",
-      "price": "29",
+      "name": "cadeira gamer",
+      "price": "1250",
       "id": 18
     },
     {
-      "name": "",
-      "price": "",
+      "name": "cadeira gamer",
+      "price": "1250",
       "id": 19
+    },
+    {
+      "name": "monitor",
+      "price": "960",
+      "id": 20
     }
   ]
 }

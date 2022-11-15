@@ -54,6 +54,51 @@
       "name": "Meias",
       "price": "25",
       "id": 11
+    },
+    {
+      "name": "Cueca",
+      "price": "9.9",
+      "id": 12
+    },
+    {
+      "name": "Calcinha",
+      "price": "8.9",
+      "id": 13
+    },
+    {
+      "name": "teste",
+      "price": "34",
+      "id": 14
+    },
+    {
+      "name": "segundo teste",
+      "price": "56.9",
+      "id": 15
+    },
+    {
+      "name": "terceiro",
+      "price": "45",
+      "id": 16
+    },
+    {
+      "name": "dasd",
+      "price": "11",
+      "id": 17
+    },
+    {
+      "name": "dadasd",
+      "price": "44",
+      "id": 18
+    },
+    {
+      "name": "dadasd",
+      "price": "44",
+      "id": 19
+    },
+    {
+      "name": "dd",
+      "price": "11",
+      "id": 20
     }
   ]
 }

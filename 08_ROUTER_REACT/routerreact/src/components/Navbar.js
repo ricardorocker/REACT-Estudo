@@ -15,7 +15,6 @@ const Navbar = () => {
       </NavLink>
       <NavLink to="/about">Sobre</NavLink>
     </nav>
-  );
-};
+  );};
 
 export default Navbar;

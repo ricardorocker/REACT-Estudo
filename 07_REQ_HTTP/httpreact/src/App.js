@@ -34,6 +34,7 @@ function App() {
       price
     }
 
+    // POST SEM HOOK CUSTOMIZADO
     // const res = await fetch(url, {
     //   method: "POST",
     //   headers: {
@@ -90,7 +91,9 @@ function App() {
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
-          <input type="submit" value="Adicionar Produto" />
+          {loading && <input type="submit" disabled value="Aguarde" />}
+          {!loading && <input type="submit" value="Adicionar Produto" />}
+          
         </form>
       </div>
     </div>

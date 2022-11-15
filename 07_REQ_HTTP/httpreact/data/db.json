@@ -74,6 +74,26 @@
       "name": "Notebook",
       "price": "3500",
       "id": 15
+    },
+    {
+      "name": "mouse",
+      "price": "90",
+      "id": 16
+    },
+    {
+      "name": "celular",
+      "price": "1500",
+      "id": 17
+    },
+    {
+      "name": "fone",
+      "price": "29",
+      "id": 18
+    },
+    {
+      "name": "",
+      "price": "",
+      "id": 19
     }
   ]
 }

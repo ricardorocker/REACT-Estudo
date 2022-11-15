@@ -11,6 +11,7 @@ import Product from "./pages/Product";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Info from "./pages/Info";
+import NotFound from "./pages/NotFound";
 
 function App() {
   return (
@@ -26,6 +27,8 @@ function App() {
           <Route path="/products/:id/info" element={<Info />} />
           {/* 4 - ROTA DINÂMICA */}
           <Route path="/products/:id" element={<Product />} />
+          {/* 7 - NO MATCH ROUTE */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>

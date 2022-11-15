@@ -1,0 +1,19 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "name": "Camisa Beje",
+            "price": 24.9
+        },
+        {
+            "id": 2,
+            "name": "Calça Preta",
+            "price": 34.9
+        },
+        {
+            "id": 3,
+            "name": "Casaco Cinza",
+            "price": 64.9
+        }
+    ]
+}

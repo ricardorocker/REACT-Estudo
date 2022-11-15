@@ -12,7 +12,7 @@ export const useFetch = (url) => {
     // 6 - LOADING
     const [loading, setLoading] = useState(false);
 
-    // 8 - TRATANDO ERROS
+    // 7 - TRATANDO ERROS
     const [error, setError] = useState(null);
 
     const [id, setId] = useState(null);
@@ -65,7 +65,7 @@ export const useFetch = (url) => {
             setLoading(true);
 
             let json;
-            
+
             if (method === "POST") {
                 const fetchOptions = [url, config]
 
@@ -84,7 +84,7 @@ export const useFetch = (url) => {
             setCallFetch(json);
         };
         httpRequest();
-    }, [method, url, config, setCallFetch]);
+    }, [method, url, config, setCallFetch, id]);
 
     return { data, httpConfig, loading, error }
 

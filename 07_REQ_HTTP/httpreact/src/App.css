@@ -20,3 +20,8 @@ form input {
   flex-direction: column; */
   margin-bottom: 15px;
 }
+
+.removeButton {
+  margin-left: 20px;
+  margin-bottom: 5px;
+}

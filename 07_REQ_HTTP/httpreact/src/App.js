@@ -56,6 +56,11 @@ function App() {
     setPrice("");
   };
 
+  // 8 - DESAFIO: HTTP DELETE
+  const handleRemove = (id) => {
+    httpConfig(id, "DELETE");
+  }
+ 
   return (
     <div className="App">
       <h1>Lista de Produtos</h1>
@@ -68,6 +73,9 @@ function App() {
             itens.map((product) => (
               <li key={product.id}>
                 {product.name} - R${product.price}
+                <button className='removeButton' onClick={() => handleRemove(product.id)}>
+                  Remover
+                </button>
               </li>
             ))}
         </ul>
@@ -94,7 +102,7 @@ function App() {
           />
           {loading && <input type="submit" disabled value="Aguarde" />}
           {!loading && <input type="submit" value="Adicionar Produto" />}
-          
+
         </form>
       </div>
     </div>

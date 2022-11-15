@@ -6,39 +6,9 @@
       "price": 59.9
     },
     {
-      "id": 2,
-      "name": "Calça vermelha",
-      "price": 90
-    },
-    {
-      "id": 3,
-      "name": "Boné aba reta",
-      "price": 29.9
-    },
-    {
-      "id": 4,
-      "name": "Bermuda de praia",
-      "price": 34.9
-    },
-    {
-      "name": "Camisa Social",
-      "price": "89",
-      "id": 5
-    },
-    {
-      "name": "Calça Social",
-      "price": "99",
-      "id": 6
-    },
-    {
       "name": "Tenis",
       "price": "109",
       "id": 7
-    },
-    {
-      "name": "Sapato",
-      "price": "140",
-      "id": 8
     },
     {
       "name": "Blusa",
@@ -54,51 +24,6 @@
       "name": "Meias",
       "price": "25",
       "id": 11
-    },
-    {
-      "name": "Cueca",
-      "price": "9.9",
-      "id": 12
-    },
-    {
-      "name": "Calcinha",
-      "price": "8.9",
-      "id": 13
-    },
-    {
-      "name": "Notebook",
-      "price": "3500",
-      "id": 14
-    },
-    {
-      "name": "Mouse",
-      "price": "59",
-      "id": 15
-    },
-    {
-      "name": "suporte teclado",
-      "price": "49",
-      "id": 16
-    },
-    {
-      "name": "suporte teclado",
-      "price": "49",
-      "id": 17
-    },
-    {
-      "name": "cadeira gamer",
-      "price": "1250",
-      "id": 18
-    },
-    {
-      "name": "cadeira gamer",
-      "price": "1250",
-      "id": 19
-    },
-    {
-      "name": "monitor",
-      "price": "960",
-      "id": 20
     }
   ]
 }

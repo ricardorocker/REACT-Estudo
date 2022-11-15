@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 
 // 4 - CUSTOM HOOK
 import { useFetch } from './hooks/useFetch';
-import { usePost } from './hooks/usePost';
 
 const url = "http://localhost:3000/products";
 
@@ -11,7 +10,7 @@ function App() {
   const [products, setProducts] = useState([]);
 
   // 4 - CUSTOM HOOK
-  const { data: itens, httpConfig } = useFetch(url);
+  const { data: itens, httpConfig, loading } = useFetch(url);
 
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -48,7 +47,7 @@ function App() {
 
     // setProducts((prevProducts) => [...prevProducts, addedProduct]);
 
-    
+
     // 5 - REFATORANDO POST
     httpConfig(product, "POST");
 
@@ -59,9 +58,18 @@ function App() {
   return (
     <div className="App">
       <h1>Lista de Produtos</h1>
-      {itens && itens.map((product) => {
-        return <li key={product.id}>{product.name} - R${product.price}</li>
-      })}
+      {/* 6 - LOADING */}
+      {loading && <p>Carregando produtos...</p>}
+      {!loading && (
+        <ul>
+          {itens &&
+            itens.map((product) => (
+              <li key={product.id}>
+                {product.name} - R${product.price}
+              </li>
+            ))}
+        </ul>
+      )}
       <div className="add-product">
         <form onSubmit={handleSubmit}>
           <label>

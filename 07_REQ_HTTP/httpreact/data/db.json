@@ -6,39 +6,9 @@
       "price": 59.9
     },
     {
-      "id": 2,
-      "name": "Calça vermelha",
-      "price": 90
-    },
-    {
-      "id": 3,
-      "name": "Boné aba reta",
-      "price": 29.9
-    },
-    {
-      "id": 4,
-      "name": "Bermuda de praia",
-      "price": 34.9
-    },
-    {
-      "name": "Camisa Social",
-      "price": "89",
-      "id": 5
-    },
-    {
-      "name": "Calça Social",
-      "price": "99",
-      "id": 6
-    },
-    {
       "name": "Tenis",
       "price": "109",
       "id": 7
-    },
-    {
-      "name": "Sapato",
-      "price": "140",
-      "id": 8
     },
     {
       "name": "Blusa",

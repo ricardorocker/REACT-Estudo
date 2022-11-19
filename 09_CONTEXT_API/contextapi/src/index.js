@@ -6,12 +6,15 @@ import reportWebVitals from "./reportWebVitals";
 
 // 2 - CRIAR PROVIDER
 import { CounterContexProvider } from "./context/CounterContext";
+import { TitleColorContextProvider } from "./context/TitleColorContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <CounterContexProvider>
-      <App />
+      <TitleColorContextProvider>
+        <App />
+      </TitleColorContextProvider>
     </CounterContexProvider>
   </React.StrictMode>
 );

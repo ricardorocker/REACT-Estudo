@@ -1,5 +1,9 @@
 # DIÁRIO DE ESTUDO
 
+# DIA 12 - 19/11/22
+![image](https://user-images.githubusercontent.com/76121782/202878999-68129df5-29f2-4050-83d8-6352ed1abe5c.png)
+![image](https://user-images.githubusercontent.com/76121782/202879007-7d56b42b-3853-4d2c-8d0a-de6c609bd884.png)
+
 # DIA 11 - 16/11/22
 ![image](https://user-images.githubusercontent.com/76121782/202337850-e2c1c469-af99-47c1-8d78-522729b58df4.png)
 

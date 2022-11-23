@@ -70,7 +70,7 @@ const Navbar = () => {
             to="/about"
             className={({ isActive }) => (isActive ? styles.active : "")}
           >
-            About
+            Sobre
           </NavLink>
         </li>
       </ul>

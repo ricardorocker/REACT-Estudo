@@ -29,14 +29,18 @@ function App() {
   const loadingUser = user === undefined;
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-        setUser(user);
-    });
-  }, [auth]);
+    if(user){
+      onAuthStateChanged(auth, (user) => {
+          setUser(user);
+      });
+    } else {
+      console.log(user)
+    }
+  }, [auth, user]);
 
-  if (loadingUser) {
-    return <p>Carregando...</p>;
-  }
+  // if (loadingUser) {
+  //   return <p>Carregando...</p>;
+  // }
 
   return (
     <div className="App">

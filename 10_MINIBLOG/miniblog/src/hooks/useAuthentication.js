@@ -53,9 +53,16 @@ export const useAuthentication = () => {
     setloading(false);
   };
 
+  // logout - sign out
+  const logout = () => {
+    checkIfIsCancelled();
+
+    signOut(auth);
+  }
+
   useEffect(() => {
     setCancelled(false);
   }, []);
 
-  return { createUser, error, loading, auth };
+  return { createUser, logout, error, loading, auth };
 };

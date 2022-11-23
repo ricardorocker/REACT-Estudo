@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthentication } from "../../hooks/useAuthentication";
 import styles from "./Login.module.css";
 
@@ -16,13 +16,19 @@ const Login = () => {
 
     const user = {
       email,
-      password
-    }
+      password,
+    };
 
     const res = await login(user);
 
-    console.log(user)
+    console.log(res);
   };
+
+  useEffect(() => {
+    if (authError) {
+      setError(authError);
+    }
+  }, [authError]);
 
   return (
     <div className={styles.login}>

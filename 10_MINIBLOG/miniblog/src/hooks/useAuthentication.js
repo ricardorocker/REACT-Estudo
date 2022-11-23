@@ -58,11 +58,32 @@ export const useAuthentication = () => {
     checkIfIsCancelled();
 
     signOut(auth);
-  }
+  };
 
-  const login = async (user) => {
-    await signInWithEmailAndPassword(user)
-  }
+  // login - sign in
+  const login = async (data) => {
+    checkIfIsCancelled();
+
+    setloading(true);
+    setError(false);
+
+    try {
+      await signInWithEmailAndPassword(auth, data.email, data.password);
+      setloading(false);
+    } catch (error) {
+      let systemErrorMessage;
+      if (error.message.includes("wrong-password")) {
+        systemErrorMessage = "Senha incorreta.";
+      } else if (error.message.includes("user-not-found")) {
+        systemErrorMessage = "Usuário não encontrado.";
+      } else {
+        systemErrorMessage = "Ocorreu um erro, por fazer tente mais tarde.";
+      }
+
+      setError(systemErrorMessage);
+      setloading(false);
+    }
+  };
 
   useEffect(() => {
     setCancelled(false);

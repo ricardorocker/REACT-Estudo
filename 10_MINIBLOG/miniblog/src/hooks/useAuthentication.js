@@ -2,7 +2,7 @@ import { db } from "../firebase/config";
 import {
   getAuth,
   createUserWithEmailAndPassword,
-  signInUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
   updateProfile,
   signOut,
 } from "firebase/auth";
@@ -60,9 +60,13 @@ export const useAuthentication = () => {
     signOut(auth);
   }
 
+  const login = async (user) => {
+    await signInWithEmailAndPassword(user)
+  }
+
   useEffect(() => {
     setCancelled(false);
   }, []);
 
-  return { createUser, logout, error, loading, auth };
+  return { createUser, login, logout, error, loading, auth };
 };

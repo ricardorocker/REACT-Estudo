@@ -3,6 +3,7 @@ import styles from "./CreatePost.module.css";
 import { useState } from "react";
 import { useInsertDocument } from "../../hooks/useInsertDocument";
 import { useAuthValue } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const [title, setTitle] = useState("");
@@ -15,27 +16,42 @@ const CreatePost = () => {
 
   const { insertDocument, response } = useInsertDocument("posts");
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e) => {
     e.preventDefault();
 
     setFormError("");
 
     // validate image
+    try {
+      new URL(image);
+    } catch (error) {
+      return setFormError("A imagem precisa ser uma URL.");
+    }
 
     // create array tags
+    const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
 
     // check all values
+    if( !title || !image || !body || !tags ) {
+      setFormError("Por favor, preencha todos os campos!")
+    }
+
+    console.log(formError);
+    if (formError) return;
 
     insertDocument({
       title,
       image,
       body,
-      tags,
+      tagsArray,
       uid: user.uid,
       createdBy: user.displayName,
     });
 
     // redirect to home page
+    navigate("/");
   };
 
   return (
@@ -95,6 +111,7 @@ const CreatePost = () => {
           </button>
         )}
         {response.error && <p className="error">{response.error}</p>}
+        {formError && <p className="error">{formError}</p>}
       </form>
     </div>
   );

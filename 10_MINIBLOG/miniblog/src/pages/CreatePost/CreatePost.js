@@ -34,11 +34,10 @@ const CreatePost = () => {
     const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
 
     // check all values
-    if( !title || !image || !body || !tags ) {
-      setFormError("Por favor, preencha todos os campos!")
+    if (!title || !image || !body || !tags) {
+      setFormError("Por favor, preencha todos os campos!");
     }
 
-    console.log(formError);
     if (formError) return;
 
     insertDocument({

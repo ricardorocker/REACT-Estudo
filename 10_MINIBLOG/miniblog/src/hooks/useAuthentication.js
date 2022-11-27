@@ -15,27 +15,20 @@ export const useAuthentication = () => {
   // cleanup
   // deal with memory leak
   const [cancelled, setCancelled] = useState(false);
-  console.log("cancelled: ", cancelled);
   const auth = getAuth();
 
   function checkIfIsCancelled() {
-    console.log("cancelled: ", cancelled);
     if (cancelled) {
       return;
     }
   }
 
   const createUser = async (data) => {
-    console.log("cancelled: ", cancelled);
     checkIfIsCancelled();
-    console.log("cancelled: ", cancelled);
     setloading(true);
-    console.log("cancelled: ", cancelled);
     setError(null);
-    console.log("cancelled: ", cancelled);
 
     try {
-      console.log("cancelled: ", cancelled);
       const { user } = await createUserWithEmailAndPassword(
         auth,
         data.email,
@@ -44,7 +37,6 @@ export const useAuthentication = () => {
 
       await updateProfile(user, { displayName: data.displayName });
       setloading(false);
-      console.log("cancelled: ", cancelled);
       return user;
     } catch (error) {
       let systemErrorMessage;
@@ -63,26 +55,20 @@ export const useAuthentication = () => {
 
   // logout - sign out
   const logout = () => {
-    console.log("cancelled: ", cancelled);
     checkIfIsCancelled();
-    console.log("cancelled: ", cancelled);
 
     signOut(auth);
   };
 
   // login - sign in
   const login = async (data) => {
-    console.log("cancelled: ", cancelled);
     checkIfIsCancelled();
 
     setloading(true);
     setError(false);
-    console.log("cancelled: ", cancelled);
 
     try {
-      console.log("cancelled: ", cancelled);
       await signInWithEmailAndPassword(auth, data.email, data.password);
-      console.log("cancelled: ", cancelled);
       setloading(false);
     } catch (error) {
       let systemErrorMessage;

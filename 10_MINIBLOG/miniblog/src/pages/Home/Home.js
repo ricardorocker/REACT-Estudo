@@ -5,15 +5,14 @@ import styles from "./Home.module.css";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
+
+// components
 import PostDetails from "../../components/PostDetails";
 
 const Home = () => {
   const [query, setQuery] = useState("");
 
   const { documents: posts, loading, error } = useFetchDocuments("posts");
-
-  console.log(posts);
-  console.log(error);
 
   const handleSubmit = (e) => {
     e.preventDefault();

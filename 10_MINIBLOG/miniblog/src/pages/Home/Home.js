@@ -3,7 +3,7 @@ import styles from "./Home.module.css";
 
 // hooks
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 
 // components
@@ -12,15 +12,21 @@ import PostDetails from "../../components/PostDetails";
 const Home = () => {
   const [query, setQuery] = useState("");
 
+  const navigate = useNavigate();
+
   const { documents: posts, loading, error } = useFetchDocuments("posts");
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    if (query) {
+      return navigate(`/search?q=${query}`);
+    }
   };
 
   return (
     <div className={styles.home}>
-      <h1>Veja os nossos posts mais recentes</h1>
+      <h1>Diário de estudos - REACT</h1>
       <form onSubmit={handleSubmit} className={styles.search_form}>
         <input
           type="text"

@@ -4,7 +4,10 @@ import styles from "./Search.module.css";
 import { useQuery } from "../../hooks/useQuery";
 
 const Search = () => {
+  // Obj URLSearchParams
   const query = useQuery();
+
+  // Retorna o valor do parametro "q"
   const search = query.get("q");
 
   return <div>

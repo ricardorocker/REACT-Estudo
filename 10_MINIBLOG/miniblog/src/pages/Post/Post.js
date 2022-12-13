@@ -11,12 +11,25 @@ const Post = () => {
   console.log(post)
 
   return (
-    <div>
+    <div className={styles.post_container}>
       {loading && <p>Carregando post...</p>}
       {post && (
-        <h1>{post.title}</h1>
-      )}
-    </div>
+        <div>
+          <h1>{post.title}</h1>
+          <img src={post.image} alt={post.image} />
+          <div className={styles.description}>{post.body}</div>
+          <h3>Este post trata sobre:</h3>
+          <div className={styles.tags}>
+            {post.tagsArray.map((tag) => (
+              <p key={tag}>
+                <span>#</span>{tag}
+              </p>
+            ))}
+          </div>
+        </div>
+      )
+      }
+    </div >
   );
 };
 

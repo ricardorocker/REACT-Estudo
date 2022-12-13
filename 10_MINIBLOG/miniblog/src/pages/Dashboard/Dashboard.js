@@ -20,6 +20,14 @@ const Dashboard = () => {
 
   console.log(posts);
 
+  if (loading) {
+    return <p>Carregando posts...</p>
+  }
+
+  const removePost = (id) => {
+
+  }
+
   return (
     <div>
       <h1>Dashboard</h1>
@@ -32,13 +40,27 @@ const Dashboard = () => {
           </Link>
         </div>
       ) : (
-        <div>
+        <>
+          <div>
+            <span>Título</span>
+            <span>Ações</span>
+          </div>
+
           {posts.map((post) => (
             <div key={post.id}>
               <p>{post.title}</p>
+              <Link to={`/posts/${post.id}`} className="btn btn-outline">
+                Ver
+              </Link>
+              <Link to={`/posts/edit/${post.id}`} className="btn btn-outline">
+                Editar
+              </Link>
+              <button className="btn btn-outline btn-danger" onClick={() => removePost(post.id)}>
+                Excluir
+              </button>
             </div>
           ))}
-        </div>
+        </>
       ))}
     </div>
   );

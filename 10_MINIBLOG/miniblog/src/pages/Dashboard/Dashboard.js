@@ -7,6 +7,8 @@ import { useAuthValue } from "../../context/AuthContext";
 
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 
+import { useDeleteDocument } from "../../hooks/useDeleteDocument";
+
 const Dashboard = () => {
   /* // My way before watch 
   const { auth } = useAuthentication();
@@ -17,15 +19,12 @@ const Dashboard = () => {
   const uid = user.uid;
 
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
+  const { deleteDocument } = useDeleteDocument("posts")
 
   console.log(posts);
 
   if (loading) {
     return <p>Carregando posts...</p>
-  }
-
-  const removePost = (id) => {
-
   }
 
   return (
@@ -56,7 +55,7 @@ const Dashboard = () => {
                 <Link to={`/posts/edit/${post.id}`} className="btn btn-outline">
                   Editar
                 </Link>
-                <button className="btn btn-outline btn-danger" onClick={() => removePost(post.id)}>
+                <button className="btn btn-outline btn-danger" onClick={() => deleteDocument(post.id)}>
                   Excluir
                 </button>
               </div>

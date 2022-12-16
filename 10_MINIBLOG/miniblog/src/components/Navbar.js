@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <nav className={styles.navbar}>
       <NavLink to="/" className={styles.brand}>
-        Dev <span>Ricardo Rocker</span>
+        Dev <span>Ricardo Rocker</span> - Futuro especialista em React 😉
       </NavLink>
       <ul className={styles.links_list}>
         <li>
@@ -69,7 +69,7 @@ const Navbar = () => {
             to="/about"
             className={({ isActive }) => (isActive ? styles.active : "")}
           >
-            Sobre
+            Sobre Mim
           </NavLink>
         </li>
         {user && (

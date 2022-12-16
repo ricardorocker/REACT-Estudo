@@ -5,6 +5,7 @@
     align-items: center;
 }
 
+
 .about p {
     color: #AAA;
     margin-bottom: 2em;
@@ -12,6 +13,35 @@
 
 .about a {
     display: block;
-    margin-top: 15px;
+    /* margin-top: 15px; */
+    margin: 15px 1em 0 1em;
     padding: 10px 15px;
+}
+
+.about .social_media {
+    display: flex;
+}
+
+.icons {
+    position: relative;
+    top: 50%;
+    transform: translateY(+15%);
+    padding-right: .1em;
+    padding-left: .4em;
+}
+
+.angular {
+    color: red;
+}
+
+.react {
+    color: rgb(28, 157, 200);
+}
+
+.firebase {
+    color: orange;
+}
+
+.graduation {
+    color: rgb(14, 14, 105);
 }

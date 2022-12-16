@@ -1,4 +1,3 @@
-// import Styles from "./EditPost.module.css";
 import styles from "./EditPost.module.css";
 
 import { useNavigate, useParams } from "react-router-dom";
@@ -6,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useFetchDocument } from "../../hooks/useFetchDocument";
 import { useEffect, useState } from "react";
 import { useAuthValue } from "../../context/AuthContext";
-import { useInsertDocument } from "../../hooks/useInsertDocument";
+import { useUpdateDocument } from "../../hooks/useUpdateDocument";
 
 const EditPost = () => {
 
@@ -26,9 +25,9 @@ const EditPost = () => {
             setImage(post.image);
             setBody(post.body);
 
-            // const textTags = post.tagsArray.join(", ");
+            const textTags = post.tagsArray.join(", ");
 
-            setTags(post.tagsArray);
+            setTags(textTags);
         }
     }, [post])
 
@@ -55,7 +54,7 @@ const EditPost = () => {
 
     const { user } = useAuthValue();
 
-    const { insertDocument, response } = useInsertDocument("posts");
+    const { updateDocument, response } = useUpdateDocument("posts");
 
     const navigate = useNavigate();
 
@@ -81,17 +80,18 @@ const EditPost = () => {
 
         if (formError) return;
 
-        insertDocument({
+        const data = {
             title,
             image,
             body,
             tagsArray,
             uid: user.uid,
             createdBy: user.displayName,
-        });
+        }
 
-        // redirect to home page
-        navigate("/");
+        updateDocument(id, data);
+
+        navigate("/dashboard");
     };
 
 
@@ -164,4 +164,4 @@ const EditPost = () => {
     );
 }
 
-export default EditPost
+export default EditPost;

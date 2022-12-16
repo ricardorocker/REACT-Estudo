@@ -19,9 +19,7 @@ const Dashboard = () => {
   const uid = user.uid;
 
   const { documents: posts, loading } = useFetchDocuments("posts", null, uid);
-  const { deleteDocument } = useDeleteDocument("posts")
-
-  console.log(posts);
+  const { deleteDocument } = useDeleteDocument("posts");
 
   if (loading) {
     return <p>Carregando posts...</p>
@@ -49,10 +47,10 @@ const Dashboard = () => {
             <div key={post.id} className={styles.post_row}>
               <p>{post.title}</p>
               <div>
-                <Link to={`/posts/${post.id}`} className="btn btn-outline">
+                <Link to={`/post/${post.id}`} className="btn btn-outline">
                   Ver
                 </Link>
-                <Link to={`/posts/edit/${post.id}`} className="btn btn-outline">
+                <Link to={`/post/edit/${post.id}`} className="btn btn-outline">
                   Editar
                 </Link>
                 <button className="btn btn-outline btn-danger" onClick={() => deleteDocument(post.id)}>
